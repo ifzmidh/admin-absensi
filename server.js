@@ -1,9 +1,46 @@
 import express from "express";
 import cors from "cors";
-import mysql from "mysql";
+import mysql from "mysql2";
+import { Sequelize, DataTypes } from "sequelize";
 
 const app = express();
 const port = 3000;
+
+const sequelize = new Sequelize("absensi", "root", "", {
+  host: "localhost",
+  dialect: "mysql", // Menggunakan MySQL
+});
+
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log("Connection has been established successfully.");
+  })
+  .catch((error) => {
+    console.error("Unable to connect to the database: ", error);
+  });
+
+import users from "./src/models/users.js";
+import division from "./src/models/division.js";
+import roles from "./src/models/roles.js";
+import workLocation from "./src/models/work_location.js";
+import workShift from "./src/models/work_sift.js";
+// [users, division, roles].map((model) => model(sequelize, DataTypes));
+users(sequelize, DataTypes);
+division(sequelize, DataTypes);
+roles(sequelize, DataTypes);
+workLocation(sequelize, DataTypes);
+workShift(sequelize, DataTypes);
+
+// Opsi sinkronisasi
+(async () => {
+  try {
+    await sequelize.sync({ alter: true }); // Mengubah tabel jika sudah ada
+    console.log("Model User berhasil disinkronkan dengan database.");
+  } catch (error) {
+    console.error("Gagal sinkronisasi model dengan database:", error);
+  }
+})();
 
 // Replace these values with your own MySQL connection details
 const connection = mysql.createConnection({
@@ -58,3 +95,4 @@ app.get("/api/users", (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
+export default sequelize;
