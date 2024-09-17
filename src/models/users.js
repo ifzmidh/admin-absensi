@@ -1,3 +1,5 @@
+import timestamp from "./timestamp.js";
+
 // Definisikan model User
 const User = (sequelize, DataTypes) => {
   return sequelize.define("User", {
@@ -30,6 +32,7 @@ const User = (sequelize, DataTypes) => {
       type: DataTypes.STRING(100),
       allowNull: true,
     },
+    ...timestamp,
   });
 };
 
