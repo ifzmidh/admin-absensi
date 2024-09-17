@@ -24,13 +24,11 @@ import users from "./src/models/users.js";
 import division from "./src/models/division.js";
 import roles from "./src/models/roles.js";
 import workLocation from "./src/models/work_location.js";
-import workShift from "./src/models/work_sift.js";
-// [users, division, roles].map((model) => model(sequelize, DataTypes));
-users(sequelize, DataTypes);
-division(sequelize, DataTypes);
-roles(sequelize, DataTypes);
-workLocation(sequelize, DataTypes);
-workShift(sequelize, DataTypes);
+import workShift from "./src/models/work_shift.js";
+
+[users, division, roles, workLocation, workShift].map((model) =>
+  model(sequelize, DataTypes)
+);
 
 // Opsi sinkronisasi
 (async () => {
