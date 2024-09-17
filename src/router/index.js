@@ -5,6 +5,7 @@ import Attendance from "@/views/Attendance/Attendance.vue";
 import Permit from "@/views/Permit/Permit.vue";
 import Sick from "@/views/Sick/Sick.vue";
 import Leave from "@/views/Leave/Leave.vue";
+import Users from "@/views/Users/Users.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,6 +14,11 @@ const router = createRouter({
       path: "/",
       name: "Login",
       component: Login,
+    },
+    {
+      path: "/users",
+      name: "Users",
+      component: Users,
     },
     {
       path: "/dashboard",
