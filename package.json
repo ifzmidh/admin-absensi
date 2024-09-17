@@ -17,6 +17,7 @@
     "primeicons": "^7.0.0",
     "primevue": "^4.0.7",
     "sequelize": "^6.37.3",
+    "sequelize-cli": "^6.6.2",
     "vue": "^3.4.29",
     "vue-router": "^4.3.3"
   },

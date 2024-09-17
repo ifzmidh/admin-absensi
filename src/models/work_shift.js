@@ -1,3 +1,5 @@
+import timestamp from "./timestamp.js";
+
 // Definisikan model User
 const work_shift = (sequelize, DataTypes) => {
   return sequelize.define(
@@ -12,6 +14,7 @@ const work_shift = (sequelize, DataTypes) => {
         type: DataTypes.ENUM("pagi", "malam"), // Definisi ENUM sesuai dengan tabel MySQL
         allowNull: true, // Sesuai dengan `DEFAULT NULL`
       },
+      ...timestamp,
     },
     {
       freezeTableName: true,

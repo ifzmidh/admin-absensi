@@ -1,3 +1,5 @@
+import timestamp from "./timestamp.js";
+
 // Definisikan model User
 const work_location = (sequelize, DataTypes) => {
   return sequelize.define(
@@ -12,6 +14,7 @@ const work_location = (sequelize, DataTypes) => {
         type: DataTypes.STRING(20),
         allowNull: true, // Sesuai dengan definisi `DEFAULT NULL` di skema MySQL
       },
+      ...timestamp,
     },
     {
       freezeTableName: true,
