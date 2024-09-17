@@ -12,10 +12,11 @@
     "@primevue/themes": "^4.0.7",
     "cors": "^2.8.5",
     "express": "^4.21.0",
-    "mysql": "^2.18.1",
+    "mysql2": "^3.11.2",
     "pinia": "^2.1.7",
     "primeicons": "^7.0.0",
     "primevue": "^4.0.7",
+    "sequelize": "^6.37.3",
     "vue": "^3.4.29",
     "vue-router": "^4.3.3"
   },
